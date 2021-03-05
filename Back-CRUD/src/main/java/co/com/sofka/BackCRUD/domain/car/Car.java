@@ -8,10 +8,11 @@ public class Car {
    private Driver driver;
    private Integer distance;
    private String color;
-   private Game game;
 
-   public Car(Driver driver) {
+   public Car(Driver driver, String color) {
       this.driver = driver;
+      this.distance = 0;
+      this.color = color;
    }
    void AssingDriver(Driver driverNew){
       driver = driverNew;
@@ -19,7 +20,8 @@ public class Car {
    Driver getConductor(){
       return driver;
    }
-   void avanzarCarril(Rail rail){
+   void avanzarCarril(Integer points){
+      distance = distance+points;
    }
    Integer getDistance(){
       return distance;

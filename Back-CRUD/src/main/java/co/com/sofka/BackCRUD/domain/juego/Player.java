@@ -20,6 +20,25 @@ public class Player {
     public String getColor(){
         return color;
     }
+    public Integer getPoints(){
+        return points;
+    }
+    public Integer getID(){
+        return ID;
+    }
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setColor(String color) {
+        this.color = color;
+    }
+    public void setPoints(Integer points) {
+        this.points = points;
+    }
+
     void assingPoints(Integer newPoints){
         points = newPoints;
     }
