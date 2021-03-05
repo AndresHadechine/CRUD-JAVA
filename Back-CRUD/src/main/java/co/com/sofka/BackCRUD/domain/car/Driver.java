@@ -5,8 +5,8 @@ import co.com.sofka.BackCRUD.domain.juego.Player;
 public class Driver extends Player {
 
 
-    public Driver(String nombre, String color) {
-
+    public Driver(String name) {
+        this.name = name;
     }
     public Integer lanzarDado(){
         Integer value;

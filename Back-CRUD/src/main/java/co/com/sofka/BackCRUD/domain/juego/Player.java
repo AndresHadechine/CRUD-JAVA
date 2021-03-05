@@ -39,7 +39,7 @@ public class Player {
         this.points = points;
     }
 
-    void assingPoints(Integer newPoints){
+    public void assingPoints(Integer newPoints){
         points = newPoints;
     }
 }
