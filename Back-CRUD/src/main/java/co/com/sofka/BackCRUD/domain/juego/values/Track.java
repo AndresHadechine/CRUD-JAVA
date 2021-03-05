@@ -1,17 +1,17 @@
 package co.com.sofka.BackCRUD.domain.juego.values;
 
-public class Pista {
+public class Track {
 
-    private Integer kilometros;
+    private Integer kilometres;
     private Integer numeroDeCarriles;
 
-    public Pista(Integer kilometros, Integer numeroDeCarriles) {
-        this.kilometros = kilometros;
+    public Track(Integer kilometres, Integer numeroDeCarriles) {
+        this.kilometres = kilometres;
         this.numeroDeCarriles = numeroDeCarriles;
     }
 
-    public Integer getKilometros() {
-        return kilometros;
+    public Integer getKilometres() {
+        return kilometres;
     }
 
     public Integer getNumeroDeCarriles() {

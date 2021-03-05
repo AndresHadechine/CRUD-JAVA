@@ -1,10 +1,10 @@
-package co.com.sofka.BackCRUD.domain.carril.values;
+package co.com.sofka.BackCRUD.domain.rail.values;
 
-public class Posicion {
+public class Position {
     private Integer actual;
     private Integer meta;
 
-    public Posicion(Integer actual, Integer meta) {
+    public Position(Integer actual, Integer meta) {
         this.actual = actual;
         this.actual = meta;
     }
