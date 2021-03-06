@@ -12,13 +12,35 @@ public class Game {
     private Boolean playing;
     private Podium podium;
 
-    public Game() {
+    public Game(Track track) {
         this.players = new HashMap<>();
+        this.playing = false;
+        this.track = track;
     }
 
     public void addPlayer(Player player){
        String ID = String.valueOf(player.getID());
         players.put(ID,player);
+    }
+
+    public Track getTrack() {
+        return track;
+    }
+
+    public void setPlayers(Map<String, Player> players) {
+        this.players = players;
+    }
+
+    public void setTrack(Track track) {
+        this.track = track;
+    }
+
+    public void setPlaying(Boolean playing) {
+        this.playing = playing;
+    }
+
+    public void setPodium(Podium podium) {
+        this.podium = podium;
     }
 
     public Boolean getPlaying() {

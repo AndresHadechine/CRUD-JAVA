@@ -1,8 +1,5 @@
 package co.com.sofka.BackCRUD.domain.car;
 
-import co.com.sofka.BackCRUD.domain.rail.Rail;
-import co.com.sofka.BackCRUD.domain.juego.Game;
-
 public class Car {
 
    private Driver driver;
@@ -14,19 +11,19 @@ public class Car {
       this.distance = 0;
       this.color = color;
    }
-   void AssingDriver(Driver driverNew){
+   public void AssingDriver(Driver driverNew){
       driver = driverNew;
    }
-   Driver getConductor(){
+   public Driver getConductor(){
       return driver;
    }
-   void avanzarCarril(Integer points){
-      distance = distance+points;
+   public void avanzarCarril(){
+      distance = distance+driver.lanzarDado();
    }
-   Integer getDistance(){
+   public Integer getDistance(){
       return distance;
    }
-   String getColor(){
+   public String getColor(){
       return color;
    }
 }

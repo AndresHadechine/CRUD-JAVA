@@ -4,6 +4,7 @@ import co.com.sofka.BackCRUD.domain.car.Car;
 import co.com.sofka.BackCRUD.domain.car.Driver;
 import co.com.sofka.BackCRUD.domain.juego.Game;
 import co.com.sofka.BackCRUD.domain.juego.Player;
+import co.com.sofka.BackCRUD.domain.juego.values.Podium;
 import co.com.sofka.BackCRUD.domain.juego.values.Track;
 import co.com.sofka.BackCRUD.domain.rail.Rail;
 import co.com.sofka.BackCRUD.dto.DTOPlayer;
@@ -12,6 +13,9 @@ import co.com.sofka.BackCRUD.repository.PodiumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class Services {
     @Autowired
@@ -19,31 +23,50 @@ public class Services {
     @Autowired
     PodiumRepository podiumRepository;
 
-    Game game = new Game();
     Track track = new Track();
+    Game game = new Game(track);
+    Podium podium = new Podium();
+    List<String> place  = new ArrayList<>();
 
-    public void savePlayer(DTOPlayer dtoplayer){
+    public DTOPlayer savePlayer(DTOPlayer dtoplayer){
         Player player = dtoplayer.convertInPlayer();
         player = playerRepository.save(player);
         game.addPlayer(player);
-        String color = "";
-        String name = "";
         Integer meters = 0;
         Rail rail = new Rail(meters, false);
-        Driver driver = new Driver(name);
-        Car car = new Car(driver, color);
+        Driver driver = new Driver(player.getName());
+        Car car = new Car(driver, player.getColor());
+        dtoplayer.convertInDTO(player);
+        rail.agregarCar(car);
+        game.getTrack().addRail(player.getID(),rail);
+        return dtoplayer;
     }
 
-    public void startGame(){
-
+    public Podium startGame(){
+        podium = new Podium();
         do {
-
-
+            game.setPlaying(false);
+            game.getTrack().getRails().forEach((k,v)->{
+                if(!v.getDesplazamientoFinal()){
+                    v.getCar().avanzarCarril();
+                    if (v.getCar().getDistance()>=game.getTrack().getKilometres()*1000){
+                        v.setDesplazamientoFinal(true);
+                        place.add(v.getCar().getConductor().getName());
+                    }
+                    game.setPlaying(true);
+                }
+            });
         }while (game.getPlaying());
+        podium.assingFirstPlace(place.get(0));
+        podium.assingSecondPlace(place.get(1));
+        podium.assingThirdPlace(place.get(2));
+        podium.setFull(true);
+        podiumRepository.save(podium);
+        track = new Track();
+        game = new Game(track);
 
 
-
-
-
+        return podium;
     }
+
 }

@@ -14,7 +14,7 @@ public class Rail {
         this.desplazamientoFinal = desplazamientoFinal;
     }
 
-    public void agregarCarril(Car carNuevo){
+    public void agregarCar(Car carNuevo){
         car = carNuevo;
     }
     public void alcanzarMeta(){
@@ -35,5 +35,21 @@ public class Rail {
 
     public Boolean getDesplazamientoFinal() {
         return desplazamientoFinal;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public void setMetros(Integer metros) {
+        this.metros = metros;
+    }
+
+    public void setDesplazamientoFinal(Boolean desplazamientoFinal) {
+        this.desplazamientoFinal = desplazamientoFinal;
     }
 }
