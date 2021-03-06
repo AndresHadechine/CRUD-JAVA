@@ -12,6 +12,7 @@ function App() {
   return (
     <div className = 'container mt-3'>
     <Form setPlay = {setPlay} />
+    <br/>
     <List players = {players} />
     </div>
   );

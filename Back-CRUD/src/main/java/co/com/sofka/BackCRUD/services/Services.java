@@ -49,6 +49,8 @@ public class Services {
             game.getTrack().getRails().forEach((k,v)->{
                 if(!v.getDesplazamientoFinal()){
                     v.getCar().avanzarCarril();
+                    System.out.println(v.getCar().getConductor().getName());
+                    System.out.println(v.getCar().getDistance());
                     if (v.getCar().getDistance()>=game.getTrack().getKilometres()*1000){
                         v.setDesplazamientoFinal(true);
                         place.add(v.getCar().getConductor().getName());
@@ -67,8 +69,15 @@ public class Services {
         System.out.println(podium.getFirstPlace());
         System.out.println(podium.getSecondPlace());
         System.out.println(podium.getThirdPlace());
-        
+
         return podium;
     }
 
+    public void resetGame(){
+        game.getTrack().getRails().forEach((k,v)->{
+           v.setDesplazamientoFinal(false);
+           v.getCar().setDistance(0);
+        });
+
+    }
 }

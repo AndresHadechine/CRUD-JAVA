@@ -19,5 +19,9 @@ public class Controller {
     public Podium savePodium(){
         return service.startGame();
     }
+    @PostMapping(value = "api/resetGame")
+    public void resetGame(){
+        service.resetGame();
+    }
 
 }

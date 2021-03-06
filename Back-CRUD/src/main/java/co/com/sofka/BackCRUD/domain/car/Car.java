@@ -26,4 +26,13 @@ public class Car {
    public String getColor(){
       return color;
    }
+   public void setDriver(Driver driver) {
+      this.driver = driver;
+   }
+   public void setDistance(Integer distance) {
+      this.distance = distance;
+   }
+   public void setColor(String color) {
+      this.color = color;
+   }
 }

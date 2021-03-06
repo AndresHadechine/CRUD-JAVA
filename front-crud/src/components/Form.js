@@ -15,7 +15,7 @@ const Form = ({ setPlay }) => {
         }).then((response) => response.json())
             .then((Podium) => {
                 setPodium({ ID: null, firstPlace: Podium.firstPlace, secondPlace: Podium.secondPlace, thirdPlace: Podium.thirdPlace });
-                alert("Primer lugar: "+ Podium.firstPlace+"\nSegundo lugar: "+Podium.secondPlace+"\nTercer lugar: "+Podium.thirdPlace);
+                alert("Primer lugar: " + Podium.firstPlace + "\nSegundo lugar: " + Podium.secondPlace + "\nTercer lugar: " + Podium.thirdPlace);
             });
     };
     const addPlayer = () => {
@@ -31,6 +31,12 @@ const Form = ({ setPlay }) => {
                 setPlayer({ ID: null, name: "", color: "", points: 0 });
                 alert("Jugador agregado");
             });
+    };
+    const resetGame = () => {
+        fetch("http://localhost:8080/api/resetGame", {
+            method: "POST",
+        }
+        ).then(()=>{alert("Podio reiniciado");})
     };
     return (
         <Fragment>
@@ -74,7 +80,11 @@ const Form = ({ setPlay }) => {
                     >Jugar</Button>
                 </div>
                 <div className="col-md-20">
-                    <Button variant="danger" className="btn mr-2"><b>Borrar Score</b></Button>
+                    <Button
+                        variant="danger"
+                        className="btn mr-2"
+                        onClick={resetGame}
+                    ><b>Borrar Score</b></Button>
                 </div>
             </form>
         </Fragment>
