@@ -17,9 +17,7 @@ public class Rail {
     public void agregarCar(Car carNuevo){
         car = carNuevo;
     }
-    public void alcanzarMeta(){
 
-    }
     void moverCarro(Integer metrosNuevo){
         metros = metros+metrosNuevo;
     }

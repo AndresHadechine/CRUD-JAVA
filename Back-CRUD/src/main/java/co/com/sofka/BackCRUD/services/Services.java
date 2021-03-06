@@ -64,8 +64,10 @@ public class Services {
         podiumRepository.save(podium);
         track = new Track();
         game = new Game(track);
-
-
+        System.out.println(podium.getFirstPlace());
+        System.out.println(podium.getSecondPlace());
+        System.out.println(podium.getThirdPlace());
+        
         return podium;
     }
 

@@ -11,7 +11,7 @@ public class Car {
       this.distance = 0;
       this.color = color;
    }
-   public void AssingDriver(Driver driverNew){
+   public void assingDriver(Driver driverNew){
       driver = driverNew;
    }
    public Driver getConductor(){

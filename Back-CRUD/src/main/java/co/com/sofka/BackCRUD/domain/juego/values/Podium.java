@@ -34,4 +34,16 @@ public class Podium {
     public void setFull(boolean full) {
         this.full = full;
     }
+    public Integer getID() {
+        return ID;
+    }
+    public String getFirstPlace() {
+        return firstPlace;
+    }
+    public String getSecondPlace() {
+        return secondPlace;
+    }
+    public String getThirdPlace() {
+        return thirdPlace;
+    }
 }
